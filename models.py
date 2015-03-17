@@ -3,7 +3,7 @@ from flask.ext.bcrypt import generate_password_hash
 from flask.ext.login import UserMixin
 from peewee import *
 
-DATABASE = SqliteDatabase('forerunner.db')
+DATABASE = PostgresDatabase('forerunner.db')
 
 class User(UserMixin, Model):
     username = CharField(unique=True)

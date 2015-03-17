@@ -1,4 +1,5 @@
 from flask import (Flask, g, render_template, flash, redirect, url_for, abort)
+from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.bcrypt import check_password_hash
 from flask.ext.login import (LoginManager, login_user, logout_user, 
 							login_required, current_user)
@@ -12,6 +13,8 @@ HOST = '0.0.0.0'
 
 app = Flask(__name__)
 app.secret_key = 'auoesh.fbdksjfn0efefneieiw29o!'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+db = SQLAlchemy(app)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
