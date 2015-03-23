@@ -17,7 +17,7 @@ class Heroku(object):
 
     def init_app(self, app):
         # SQL-Alchemy
-        app.config.setdefault('SQLALCHEMY_DATABASE_URI', environ.get('DATABASE_URL'))
+        app.config.setdefault('SQLALCHEMY_DATABASE_URI', environ.get('HEROKU_POSTGRESQL_RED_URL'))
 
         # Sentry
         app.config.setdefault('SENTRY_DSN', environ.get('SENTRY_DSN'))
